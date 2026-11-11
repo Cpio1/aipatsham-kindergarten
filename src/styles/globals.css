@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* ---------- Дизайн токендері (тек ашық тақырып) ---------- */
+@theme {
+  --color-blue: #3467d5;
+  --color-blue-deep: #2550b0;
+  --color-blue-soft: #eaf3ff;
+  --color-blue-mist: #d6e6ff;
+  --color-pink: #ff83b5;
+  --color-pink-deep: #cc3d7b;
+  --color-pink-soft: #fff0f7;
+  --color-pink-mist: #ffd9ea;
+  --color-ink: #263451;
+  --color-ink-soft: #5a6785;
+  --color-cream: #fffaf3;
+  --color-sun: #ffcf5c;
+
+  --font-display: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
+
+  --shadow-soft: 0 10px 30px -12px rgb(38 52 81 / 0.18);
+  --shadow-card: 0 18px 40px -20px rgb(52 103 213 / 0.35);
+  --shadow-pink: 0 18px 40px -20px rgb(255 131 181 / 0.55);
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-spin-slow: spin 28s linear infinite;
+  --animate-twinkle: twinkle 3.2s ease-in-out infinite;
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.82) rotate(12deg);
+      opacity: 0.7;
+    }
+  }
+}
+
+/* ---------- Негізгі стильдер ---------- */
+:root {
+  color-scheme: light only;
+  --header-h: 72px;
+}
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 84px;
+  }
+}
+
+html {
+  background: #ffffff;
+  color: var(--color-ink);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Секциялар бекітілген шапканың астына тығылмайды */
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-pink-mist);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Ішкі көлденең слайдерлер үшін */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Органикалық пішіндер */
+.blob-a {
+  border-radius: 58% 42% 46% 54% / 52% 44% 56% 48%;
+}
+.blob-b {
+  border-radius: 42% 58% 62% 38% / 46% 56% 44% 54%;
+}
+.blob-c {
+  border-radius: 64% 36% 52% 48% / 40% 54% 46% 60%;
+}
+
+/* Нүктелі өрнек */
+.dots {
+  background-image: radial-gradient(currentColor 1.6px, transparent 1.7px);
+  background-size: 16px 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
