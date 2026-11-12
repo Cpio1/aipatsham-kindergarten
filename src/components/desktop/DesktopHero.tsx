@@ -9,11 +9,72 @@ import { ButtonLink } from "@/components/ui/Button";
 import { HeroTitle } from "@/components/shared/HeroTitle";
 import { PhotoFrame } from "@/components/shared/PhotoFrame";
 import { WhatsAppIcon } from "@/components/shared/BrandIcons";
-import { CloudShape, FlowerShape, Sparkle, StarShape, Wave } from "@/components/shared/Decor";
+import { CloudShape, FlowerShape, HeroWaves, Sparkle, StarShape } from "@/components/shared/Decor";
 import { statIcons } from "@/components/shared/icons";
 import { cn } from "@/lib/cn";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+/**
+ * Көп қабатты аспан градиенті: көгілдір жоғарғы-сол жақта басым,
+ * қызғылт оң жақ пен төменде пайда болады; мәтін артында жұмсақ ақ жарық.
+ */
+const skyGradient = [
+  "radial-gradient(42% 52% at 24% 48%, rgb(255 255 255 / 0.5) 0%, rgb(255 255 255 / 0) 70%)",
+  "radial-gradient(42% 58% at 94% 58%, #FFC6E5 0%, rgb(255 198 229 / 0) 72%)",
+  "radial-gradient(60% 45% at 68% 100%, #FFE3F2 0%, rgb(255 227 242 / 0) 75%)",
+  "radial-gradient(55% 70% at 0% 0%, #A9DBFF 0%, rgb(169 219 255 / 0) 72%)",
+  "linear-gradient(155deg, #A9DBFF 0%, #C5E8FF 36%, #FFE3F2 76%, #FFFFFF 100%)",
+].join(", ");
+
+const cloudShadow = "drop-shadow-[0_8px_14px_rgb(43_95_232/0.14)]";
+
+/** Desktop фонының декоры: жарқылдар, бұлттар, жұлдызшалар, толқын сызықтар */
+function DesktopHeroSky() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      {/* Жұмсақ түрлі түсті жарқылдар */}
+      <div className="animate-glow absolute -top-28 -left-28 h-[440px] w-[440px] rounded-full bg-[#A9DBFF] blur-3xl will-change-[opacity]" />
+      <div className="animate-glow absolute top-[20%] -right-28 h-[400px] w-[400px] rounded-full bg-[#FFC6E5] blur-3xl will-change-[opacity] [animation-delay:-4.5s]" />
+      <div className="animate-glow absolute top-[14%] left-[30%] h-44 w-44 rounded-full bg-white/70 blur-2xl will-change-[opacity] [animation-delay:-2s]" />
+      <div className="absolute bottom-6 left-[18%] h-48 w-[42%] rounded-full bg-[#FFE3F2]/80 blur-3xl" />
+
+      {/* Толқын сызықтар */}
+      <svg viewBox="0 0 1000 120" preserveAspectRatio="none" fill="none" className="absolute top-[62px] right-0 left-[34%] h-[120px]">
+        <path
+          d="M-10 70C140 20 300 14 460 50S800 110 1010 36"
+          stroke="#FFFFFF"
+          strokeOpacity="0.75"
+          strokeWidth="2"
+          vectorEffect="non-scaling-stroke"
+        />
+        <path
+          d="M-10 104C180 64 360 70 540 92S860 118 1010 80"
+          stroke="#FF5FA2"
+          strokeOpacity="0.28"
+          strokeWidth="2"
+          strokeDasharray="2 10"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+        />
+      </svg>
+
+      {/* Бұлттар */}
+      <CloudShape className={cn("animate-drift absolute top-[92px] left-[37%] w-24 text-white", cloudShadow)} />
+      <CloudShape className={cn("animate-drift-slow absolute top-[150px] right-[3%] w-16 text-white/90", cloudShadow)} />
+      <CloudShape className={cn("animate-drift-slow absolute bottom-[100px] left-[44%] w-20 text-white/95 [animation-delay:-12s]", cloudShadow)} />
+
+      {/* Жұлдызшалар */}
+      <Sparkle className="animate-twinkle absolute top-[140px] left-[3%] h-4 w-4 text-pink" />
+      <StarShape className="animate-twinkle absolute top-[86px] left-[56%] h-4 w-4 text-white [animation-delay:0.8s]" />
+      <Sparkle className="animate-twinkle absolute bottom-[38%] left-[48%] h-3.5 w-3.5 text-white [animation-delay:1.6s]" />
+      <Sparkle className="animate-twinkle absolute top-[24%] right-[2%] h-4 w-4 text-pink [animation-delay:2.2s]" />
+
+      {/* Нүктелер */}
+      <div className="dots absolute right-[4%] bottom-[104px] h-14 w-20 text-white/80" />
+    </div>
+  );
+}
 
 const chipPlacement = [
   "left-[-6%] top-[10%]",
@@ -26,18 +87,10 @@ export function DesktopHero({ image }: { image: SiteImage | null }) {
   const { t } = useLang();
 
   return (
-    <div className="relative hidden overflow-hidden bg-gradient-to-b from-blue-soft via-[#EEF4FF] to-white lg:block">
-      {/* Фондық декорлар */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-white/70 blur-3xl" />
-        <div className="absolute top-24 right-[-80px] h-[320px] w-[320px] rounded-full bg-pink-soft blur-3xl" />
-        <CloudShape className="animate-float-slow absolute top-[110px] left-[44%] w-20 text-white" />
-        <CloudShape className="animate-float absolute bottom-[120px] left-0 w-28 text-white/90" />
-        <Sparkle className="animate-twinkle absolute top-[150px] left-[4%] h-4 w-4 text-pink" />
-        <div className="dots absolute bottom-20 left-[38%] h-16 w-24 text-blue/15" />
-      </div>
+    <div className="relative hidden overflow-hidden lg:block" style={{ backgroundImage: skyGradient }}>
+      <DesktopHeroSky />
 
-      <div className="relative mx-auto grid max-w-[1320px] grid-cols-[1.05fr_0.95fr] items-center gap-10 px-6 pt-[100px] pb-10 xl:gap-14 xl:px-10 xl:pt-[112px] xl:pb-14">
+      <div className="relative mx-auto grid max-w-[1320px] grid-cols-[1.05fr_0.95fr] items-center gap-10 px-6 pt-[100px] pb-6 xl:gap-14 xl:px-10 xl:pt-[112px] xl:pb-8">
         {/* Мәтін */}
         <div className="relative z-10">
           <m.span
@@ -163,7 +216,7 @@ export function DesktopHero({ image }: { image: SiteImage | null }) {
           })}
         </div>
       </div>
-      <Wave className="relative -mb-px text-white" />
+      <HeroWaves className="h-[76px] xl:h-[92px]" />
     </div>
   );
 }

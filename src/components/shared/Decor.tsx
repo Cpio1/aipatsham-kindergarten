@@ -86,3 +86,43 @@ export function Wave({ className, flip = false }: DecorProps & { flip?: boolean 
     </svg>
   );
 }
+
+/**
+ * Hero астындағы көп қабатты толқындар: артқы көгілдір, ортаңғы қызғылт, алдыңғы ақ
+ * (келесі ақ секциямен қосылады). Артқы қабаттар сәл кеңірек — тербелгенде шеті көрінбейді.
+ * Mobile үшін жайпақ, бір-екі иірімді жеке пішіндер.
+ */
+const heroWavePaths = {
+  desktop: [
+    "M0 38C180 8 360 6 560 30S940 70 1140 40 1380 6 1440 18V100H0Z",
+    "M0 54C220 22 420 28 660 52S1040 84 1240 58 1400 32 1440 38V100H0Z",
+    "M0 70C200 48 420 50 680 70S1100 94 1300 76 1420 62 1440 64V100H0Z",
+  ],
+  mobile: [
+    "M0 34C160 6 380 2 640 26S1120 58 1440 22V100H0Z",
+    "M0 52C260 24 520 30 800 54S1240 70 1440 44V100H0Z",
+    "M0 70C300 52 640 56 920 72S1300 82 1440 66V100H0Z",
+  ],
+};
+
+export function HeroWaves({ className, variant = "desktop" }: DecorProps & { variant?: "desktop" | "mobile" }) {
+  const [back, mid, front] = heroWavePaths[variant];
+  const layer = "absolute bottom-0 -left-[5%] h-full w-[110%]";
+  return (
+    <div aria-hidden="true" className={cn("pointer-events-none relative -mb-px w-full", className)}>
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className={cn(layer, "animate-sway-slow")}>
+        <path fill="#A9DBFF" fillOpacity="0.75" d={back} />
+      </svg>
+      <svg
+        viewBox="0 0 1440 100"
+        preserveAspectRatio="none"
+        className={cn(layer, "animate-sway [animation-direction:alternate-reverse]")}
+      >
+        <path fill="#FFC6E5" fillOpacity="0.9" d={mid} />
+      </svg>
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none" className="absolute bottom-0 left-0 h-full w-full">
+        <path fill="#FFFFFF" d={front} />
+      </svg>
+    </div>
+  );
+}

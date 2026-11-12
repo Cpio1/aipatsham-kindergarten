@@ -9,25 +9,49 @@ import { ButtonLink } from "@/components/ui/Button";
 import { HeroTitle } from "@/components/shared/HeroTitle";
 import { PhotoFrame } from "@/components/shared/PhotoFrame";
 import { WhatsAppIcon } from "@/components/shared/BrandIcons";
-import { CloudShape, Sparkle, StarShape, Wave } from "@/components/shared/Decor";
+import { CloudShape, HeroWaves, Sparkle, StarShape } from "@/components/shared/Decor";
 import { statIcons } from "@/components/shared/icons";
 import { cn } from "@/lib/cn";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const statTone = ["bg-blue text-white", "bg-pink-deep text-white", "bg-sun text-ink"];
 
+/**
+ * Mobile үшін тік градиент: жоғары — көгілдір аспан, ортасынан төмен — қызғылт,
+ * соңы ақ толқынға ұласады. Тақырып артында жұмсақ ақ жарық.
+ */
+const skyGradient = [
+  "radial-gradient(85% 16% at 50% 14%, rgb(255 255 255 / 0.55) 0%, rgb(255 255 255 / 0) 72%)",
+  "radial-gradient(75% 26% at 100% 50%, #FFC6E5 0%, rgb(255 198 229 / 0) 72%)",
+  "radial-gradient(75% 22% at 0% 80%, #FFE3F2 0%, rgb(255 227 242 / 0) 72%)",
+  "linear-gradient(180deg, #A9DBFF 0%, #C5E8FF 26%, #FFE3F2 62%, #FFD5EB 84%, #FFFFFF 100%)",
+].join(", ");
+
+/** Mobile фоны: жарқылдар аз әрі ықшам, бұлттар мен жұлдызшалар кішкентай, мәтін аймағынан тыс */
+function MobileHeroSky() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+      <div className="animate-glow absolute -top-12 -left-16 h-56 w-56 rounded-full bg-[#A9DBFF] blur-3xl will-change-[opacity]" />
+      <div className="animate-glow absolute top-[44%] -right-20 h-60 w-60 rounded-full bg-[#FFC6E5] blur-3xl will-change-[opacity] [animation-delay:-4.5s]" />
+
+      <CloudShape className="animate-drift absolute top-[70px] right-2 w-10 text-white drop-shadow-[0_4px_8px_rgb(43_95_232/0.14)]" />
+      <CloudShape className="animate-drift-slow absolute top-[76px] left-1 w-8 text-white/85" />
+
+      <Sparkle className="animate-twinkle absolute top-[118px] left-[5%] h-3 w-3 text-pink" />
+      <StarShape className="animate-twinkle absolute top-[150px] right-[5%] h-3 w-3 text-white [animation-delay:1.2s]" />
+      <Sparkle className="animate-twinkle absolute top-[52%] left-[3%] h-2.5 w-2.5 text-white [animation-delay:2s]" />
+    </div>
+  );
+}
+
 export function MobileHero({ image }: { image: SiteImage | null }) {
   const { t } = useLang();
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-blue-soft via-[#EEF4FF] to-white lg:hidden">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute top-36 -right-16 h-44 w-44 rounded-full bg-pink-soft blur-3xl" />
-        <CloudShape className="animate-float-slow absolute top-[84px] right-2 w-12 text-white" />
-        <Sparkle className="animate-twinkle absolute top-[100px] left-[6%] h-3 w-3 text-pink" />
-      </div>
+    <div className="relative overflow-hidden lg:hidden" style={{ backgroundImage: skyGradient }}>
+      <MobileHeroSky />
 
-      <div className="relative mx-auto max-w-xl px-4 pt-[80px] pb-6 sm:px-6 sm:pt-[92px]">
+      <div className="relative mx-auto max-w-xl px-4 pt-[80px] pb-4 sm:px-6 sm:pt-[92px]">
         <m.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,7 +138,7 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
           </div>
         </m.div>
       </div>
-      <Wave className="relative -mb-px text-white" />
+      <HeroWaves variant="mobile" className="h-[44px] sm:h-[60px]" />
     </div>
   );
 }

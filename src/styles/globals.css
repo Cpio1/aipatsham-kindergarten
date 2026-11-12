@@ -26,6 +26,38 @@
   --animate-float-slow: float 11s ease-in-out infinite;
   --animate-spin-slow: spin 28s linear infinite;
   --animate-twinkle: twinkle 3.2s ease-in-out infinite;
+  /* Hero фоны: бұлттардың баяу жылжуы, жарқылдар, толқындардың тербелісі */
+  --animate-drift: drift 24s ease-in-out infinite alternate;
+  --animate-drift-slow: drift 36s ease-in-out infinite alternate;
+  --animate-glow: glow 9s ease-in-out infinite;
+  --animate-sway: sway 16s ease-in-out infinite alternate;
+  --animate-sway-slow: sway 24s ease-in-out infinite alternate;
+
+  @keyframes drift {
+    from {
+      transform: translate3d(-14px, 0, 0);
+    }
+    to {
+      transform: translate3d(18px, 0, 0);
+    }
+  }
+  @keyframes glow {
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes sway {
+    from {
+      transform: translate3d(-2.5%, 0, 0);
+    }
+    to {
+      transform: translate3d(2.5%, 0, 0);
+    }
+  }
 
   @keyframes float {
     0%,
