@@ -44,7 +44,7 @@ export function getContactActions(t: Dictionary, iconClass = "h-6 w-6"): Contact
       label: "Instagram",
       hint: site.instagram.handle,
       icon: <InstagramIcon className={iconClass} />,
-      tone: "bg-gradient-to-br from-[#FF83B5] via-[#E0518D] to-[#8F5BD6] text-white",
+      tone: "bg-gradient-to-br from-[#FF5FA2] via-[#EC3F87] to-[#8F5BD6] text-white",
     },
     {
       key: "map",

@@ -34,7 +34,7 @@ export function CloudShape({ className }: DecorProps) {
   );
 }
 
-export function FlowerShape({ className, center = "#FFCF5C" }: DecorProps & { center?: string }) {
+export function FlowerShape({ className, center = "#FFC233" }: DecorProps & { center?: string }) {
   return (
     <svg viewBox="0 0 48 48" aria-hidden="true" className={cn("pointer-events-none", className)}>
       <g fill="currentColor">

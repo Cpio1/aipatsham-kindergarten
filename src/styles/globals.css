@@ -2,25 +2,25 @@
 
 /* ---------- Дизайн токендері (тек ашық тақырып) ---------- */
 @theme {
-  --color-blue: #3467d5;
-  --color-blue-deep: #2550b0;
-  --color-blue-soft: #eaf3ff;
-  --color-blue-mist: #d6e6ff;
-  --color-pink: #ff83b5;
-  --color-pink-deep: #cc3d7b;
-  --color-pink-soft: #fff0f7;
-  --color-pink-mist: #ffd9ea;
+  --color-blue: #2b5fe8;
+  --color-blue-deep: #1e46c8;
+  --color-blue-soft: #e3efff;
+  --color-blue-mist: #c6dcff;
+  --color-pink: #ff5fa2;
+  --color-pink-deep: #d42572;
+  --color-pink-soft: #ffe8f2;
+  --color-pink-mist: #ffcce3;
   --color-ink: #263451;
-  --color-ink-soft: #5a6785;
+  --color-ink-soft: #4e5b7e;
   --color-cream: #fffaf3;
-  --color-sun: #ffcf5c;
+  --color-sun: #ffc233;
 
   --font-display: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
 
   --shadow-soft: 0 10px 30px -12px rgb(38 52 81 / 0.18);
-  --shadow-card: 0 18px 40px -20px rgb(52 103 213 / 0.35);
-  --shadow-pink: 0 18px 40px -20px rgb(255 131 181 / 0.55);
+  --shadow-card: 0 18px 40px -20px rgb(43 95 232 / 0.35);
+  --shadow-pink: 0 18px 40px -20px rgb(255 95 162 / 0.55);
 
   --animate-float: float 7s ease-in-out infinite;
   --animate-float-slow: float 11s ease-in-out infinite;

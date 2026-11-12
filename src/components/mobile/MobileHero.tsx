@@ -20,7 +20,7 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
   const { t } = useLang();
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-b from-blue-soft via-[#F5F9FF] to-white lg:hidden">
+    <div className="relative overflow-hidden bg-gradient-to-b from-blue-soft via-[#EEF4FF] to-white lg:hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute top-36 -right-16 h-44 w-44 rounded-full bg-pink-soft blur-3xl" />
         <CloudShape className="animate-float-slow absolute top-[84px] right-2 w-12 text-white" />
@@ -61,7 +61,7 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
             alt={t.hero.photoAlt}
             priority
             sizes="(max-width: 1023px) 92vw, 1px"
-            className="relative aspect-[5/4] rounded-[44px_44px_44px_120px] shadow-[0_28px_50px_-26px_rgb(52_103_213/0.6)] ring-[6px] ring-white"
+            className="relative aspect-[5/4] rounded-[44px_44px_44px_120px] shadow-[0_28px_50px_-26px_rgb(43_95_232/0.6)] ring-[6px] ring-white"
           />
           <StarShape className="animate-twinkle absolute -top-2 right-3 h-6 w-6 text-sun" />
           <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[12.5px] font-extrabold text-ink shadow-soft">

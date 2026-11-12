@@ -13,17 +13,17 @@ export function LogoMark({ logo, className }: { logo: SiteImage | null; classNam
   }
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" className={cn("block", className)}>
-      <circle cx="32" cy="32" r="31" fill="#EAF3FF" />
-      <path d="M38 14a19 19 0 1 0 14.5 30.5A15.5 15.5 0 0 1 38 14Z" fill="#3467D5" />
+      <circle cx="32" cy="32" r="31" fill="#E3EFFF" />
+      <path d="M38 14a19 19 0 1 0 14.5 30.5A15.5 15.5 0 0 1 38 14Z" fill="#2B5FE8" />
       <path
         d="M17 22.5l3.6 3.4 3.4-6.4 3.4 6.4 3.6-3.4-1.4 9H18.4l-1.4-9Z"
-        fill="#FF83B5"
-        stroke="#FF83B5"
+        fill="#FF5FA2"
+        stroke="#FF5FA2"
         strokeWidth="1.4"
         strokeLinejoin="round"
       />
-      <circle cx="47" cy="17" r="2.6" fill="#FF83B5" />
-      <circle cx="51.5" cy="26" r="1.6" fill="#FFCF5C" />
+      <circle cx="47" cy="17" r="2.6" fill="#FF5FA2" />
+      <circle cx="51.5" cy="26" r="1.6" fill="#FFC233" />
     </svg>
   );
 }

@@ -26,7 +26,7 @@ export function DesktopHero({ image }: { image: SiteImage | null }) {
   const { t } = useLang();
 
   return (
-    <div className="relative hidden overflow-hidden bg-gradient-to-b from-blue-soft via-[#F4F8FF] to-white lg:block">
+    <div className="relative hidden overflow-hidden bg-gradient-to-b from-blue-soft via-[#EEF4FF] to-white lg:block">
       {/* Фондық декорлар */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full bg-white/70 blur-3xl" />
@@ -125,7 +125,7 @@ export function DesktopHero({ image }: { image: SiteImage | null }) {
               alt={t.hero.photoAlt}
               priority
               sizes="(min-width: 1024px) 440px, 1px"
-              className="blob-a absolute inset-0 shadow-[0_40px_80px_-30px_rgb(52_103_213/0.55)] ring-8 ring-white"
+              className="blob-a absolute inset-0 shadow-[0_40px_80px_-30px_rgb(43_95_232/0.55)] ring-8 ring-white"
             />
           </m.div>
 

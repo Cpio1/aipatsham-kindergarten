@@ -35,7 +35,7 @@ export function LangSwitch({ id, className }: { id: string; className?: string }
             {active ? (
               <m.span
                 layoutId={`lang-pill-${id}`}
-                className="absolute inset-0 -z-10 rounded-full bg-blue shadow-[0_6px_14px_-6px_rgb(52_103_213/0.8)]"
+                className="absolute inset-0 -z-10 rounded-full bg-blue shadow-[0_6px_14px_-6px_rgb(43_95_232/0.8)]"
                 transition={{ type: "spring", stiffness: 420, damping: 32 }}
               />
             ) : null}
