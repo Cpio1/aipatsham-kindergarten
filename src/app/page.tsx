@@ -16,7 +16,7 @@ import { MobileContacts } from "@/components/mobile/MobileContacts";
 import { Documents } from "@/components/shared/Documents";
 import { Footer } from "@/components/shared/Footer";
 import { FloatingWhatsApp } from "@/components/shared/FloatingWhatsApp";
-import { Wave } from "@/components/shared/Decor";
+import { SectionBackground } from "@/components/shared/SectionBackground";
 
 /**
  * Әр секцияның id-і біреу ғана; ішінде Desktop (lg+) және Mobile (<lg)
@@ -43,35 +43,37 @@ export default function Home() {
           <MobileHero image={images.hero} />
         </section>
 
-        <section id="about">
+        <section id="about" className="relative isolate">
+          <SectionBackground variant="about" />
           <DesktopAbout image={images.about} />
           <MobileAbout image={images.about} />
         </section>
 
-        <section id="nutrition" className="has-wave-top relative">
-          <Wave className="text-blue-soft" />
-          <div className="bg-blue-soft">
-            <DesktopNutrition />
-            <MobileNutrition />
-          </div>
-          <Wave flip className="text-blue-soft" />
+        <section id="nutrition" className="relative isolate">
+          <SectionBackground variant="nutrition" />
+          <DesktopNutrition />
+          <MobileNutrition />
         </section>
 
-        <section id="clubs">
+        <section id="clubs" className="relative isolate">
+          <SectionBackground variant="clubs" />
           <DesktopClubs />
           <MobileClubs />
         </section>
 
-        <section id="gallery" className="relative bg-gradient-to-b from-white via-pink-soft/60 to-white">
+        <section id="gallery" className="relative isolate">
+          <SectionBackground variant="gallery" />
           <DesktopGallery images={images.gallery} />
           <MobileGallery images={images.gallery} />
         </section>
 
-        <section id="documents">
+        <section id="documents" className="relative isolate">
+          <SectionBackground variant="documents" />
           <Documents />
         </section>
 
-        <section id="contacts">
+        <section id="contacts" className="relative isolate">
+          <SectionBackground variant="contacts" />
           <DesktopContacts logo={images.logo} />
           <MobileContacts logo={images.logo} />
         </section>

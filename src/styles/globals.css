@@ -14,6 +14,13 @@
   --color-ink-soft: #4e5b7e;
   --color-cream: #fffaf3;
   --color-sun: #ffc233;
+  /* Акцентті жарқын қызғылт (декор, белгілер) */
+  --color-rose: #e91e78;
+  /* Аспан палитрасы */
+  --color-sky: #a9dbff;
+  --color-sky-light: #c5e8ff;
+  --color-blush: #ffc6e5;
+  --color-blush-light: #ffe3f2;
 
   --font-display: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-nunito), "Nunito", ui-rounded, "Segoe UI", system-ui, sans-serif;
@@ -92,18 +99,22 @@
   --wave-h: 28px;
   /* Шапка мен секция мазмұнының арасындағы саңылау */
   --anchor-gap: 16px;
+  /* Секциялар арасындағы жайпақ толқын */
+  --divider-h: 24px;
 }
 @media (min-width: 1024px) {
   :root {
     --header-h: 76px;
     --section-pt: 48px;
     --wave-h: 48px;
+    --divider-h: 36px;
   }
 }
 @media (min-width: 1280px) {
   :root {
     --section-pt: 56px;
     --wave-h: 56px;
+    --divider-h: 40px;
   }
 }
 
@@ -134,9 +145,6 @@ section[id] {
   scroll-margin-top: calc(var(--header-h) + var(--anchor-gap) - var(--section-pt));
   overflow-x: clip;
 }
-section[id].has-wave-top {
-  scroll-margin-top: calc(var(--header-h) + var(--anchor-gap) - var(--section-pt) - var(--wave-h));
-}
 #home {
   scroll-margin-top: 0;
 }
@@ -156,6 +164,100 @@ section[id].has-wave-top {
   outline: 3px solid var(--color-blue);
   outline-offset: 3px;
   border-radius: 12px;
+}
+
+/* ---------- Секция фондары ----------
+ * Әр секцияның өз градиенті бар. Жоғарғы түс = алдыңғы секция толқынының түсі,
+ * сондықтан шекаралар жұмсақ. Mobile — тік, Desktop — кең бүйірлік жарқылдармен.
+ */
+.sky-about {
+  background:
+    radial-gradient(80% 22% at 100% 30%, rgb(255 198 229 / 0.5), transparent 70%),
+    radial-gradient(80% 20% at 0% 72%, rgb(169 219 255 / 0.45), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #e2f2ff 22%, #d8eeff 45%, #ffe6f2 78%, #ffe0ef 100%);
+}
+.sky-nutrition {
+  background:
+    radial-gradient(70% 30% at 100% 20%, rgb(255 198 229 / 0.55), transparent 70%),
+    linear-gradient(180deg, #ddf0ff 0%, #c5e8ff 50%, #d3ecff 100%);
+}
+.sky-clubs {
+  background:
+    radial-gradient(70% 25% at 0% 30%, rgb(169 219 255 / 0.5), transparent 70%),
+    linear-gradient(180deg, #ffeaf5 0%, #ffe3f2 50%, #fff2f8 100%);
+}
+.sky-gallery {
+  background:
+    radial-gradient(70% 22% at 100% 60%, rgb(197 232 255 / 0.7), transparent 70%),
+    linear-gradient(180deg, #e4f3ff 0%, #f4faff 45%, #dcefff 100%);
+}
+.sky-documents {
+  background:
+    radial-gradient(70% 40% at 0% 40%, rgb(255 198 229 / 0.45), transparent 70%),
+    linear-gradient(180deg, #fff2f8 0%, #ffe3f2 55%, #fff5fa 100%);
+}
+.sky-contacts {
+  background:
+    radial-gradient(80% 25% at 100% 15%, rgb(255 198 229 / 0.6), transparent 70%),
+    linear-gradient(180deg, #e0f1ff 0%, #c5e8ff 40%, #ffd9ec 85%, #ffe3f2 100%);
+}
+.sky-footer {
+  background:
+    radial-gradient(70% 40% at 100% 100%, rgb(255 198 229 / 0.55), transparent 70%),
+    linear-gradient(180deg, #ddefff 0%, #eaf5ff 50%, #ffeff7 100%);
+}
+@media (min-width: 1024px) {
+  .sky-about {
+    background:
+      radial-gradient(32% 40% at 100% 14%, rgb(255 198 229 / 0.6), transparent 70%),
+      radial-gradient(36% 45% at 0% 42%, rgb(169 219 255 / 0.5), transparent 70%),
+      radial-gradient(40% 35% at 90% 82%, rgb(197 232 255 / 0.65), transparent 70%),
+      linear-gradient(180deg, #ffffff 0%, #e2f2ff 20%, #d8eeff 46%, #ffe6f2 76%, #ffe0ef 100%);
+  }
+  .sky-nutrition {
+    background:
+      radial-gradient(30% 55% at 100% 30%, rgb(255 198 229 / 0.6), transparent 70%),
+      radial-gradient(30% 50% at 0% 80%, rgb(255 227 242 / 0.7), transparent 70%),
+      linear-gradient(170deg, #ddf0ff 0%, #c5e8ff 50%, #d3ecff 100%);
+  }
+  .sky-clubs {
+    background:
+      radial-gradient(30% 50% at 0% 25%, rgb(169 219 255 / 0.55), transparent 70%),
+      radial-gradient(30% 50% at 100% 80%, rgb(197 232 255 / 0.6), transparent 70%),
+      linear-gradient(180deg, #ffeaf5 0%, #ffe3f2 50%, #fff2f8 100%);
+  }
+  .sky-gallery {
+    background:
+      radial-gradient(30% 45% at 0% 20%, rgb(169 219 255 / 0.4), transparent 70%),
+      radial-gradient(30% 45% at 100% 70%, rgb(197 232 255 / 0.7), transparent 70%),
+      linear-gradient(180deg, #e4f3ff 0%, #f4faff 45%, #dcefff 100%);
+  }
+  .sky-documents {
+    background:
+      radial-gradient(30% 60% at 0% 50%, rgb(255 198 229 / 0.5), transparent 70%),
+      radial-gradient(30% 60% at 100% 40%, rgb(255 255 255 / 0.8), transparent 70%),
+      linear-gradient(180deg, #fff2f8 0%, #ffe3f2 55%, #fff5fa 100%);
+  }
+  .sky-contacts {
+    background:
+      radial-gradient(35% 50% at 100% 20%, rgb(255 198 229 / 0.65), transparent 70%),
+      radial-gradient(35% 50% at 0% 70%, rgb(169 219 255 / 0.55), transparent 70%),
+      linear-gradient(165deg, #e0f1ff 0%, #c5e8ff 40%, #ffd9ec 85%, #ffe3f2 100%);
+  }
+  .sky-footer {
+    background:
+      radial-gradient(30% 70% at 100% 100%, rgb(255 198 229 / 0.55), transparent 70%),
+      radial-gradient(30% 70% at 0% 0%, rgb(169 219 255 / 0.4), transparent 70%),
+      linear-gradient(180deg, #ddefff 0%, #eaf5ff 50%, #ffeff7 100%);
+  }
+}
+
+/* Жаңа стильдегі карточка: жұмсақ түсті көлеңке + нәзік ақ жиек */
+.card-soft {
+  box-shadow:
+    0 16px 36px -22px rgb(43 95 232 / 0.4),
+    0 4px 10px -6px rgb(233 30 120 / 0.12),
+    inset 0 0 0 1px rgb(255 255 255 / 0.85);
 }
 
 /* Ішкі көлденең слайдерлер үшін */

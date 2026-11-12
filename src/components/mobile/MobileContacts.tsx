@@ -61,9 +61,9 @@ export function MobileContacts({ logo }: { logo: SiteImage | null }) {
               href={a.href}
               {...(a.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={cn(
-                "flex h-full min-h-[108px] flex-col items-start justify-between gap-2.5 p-4 shadow-soft transition-transform active:scale-[0.97]",
+                "flex h-full min-h-[108px] flex-col items-start card-soft justify-between gap-2.5 p-4 transition-transform active:scale-[0.97]",
                 i % 2 === 0 ? "rounded-[28px_28px_28px_12px]" : "rounded-[28px_12px_28px_28px]",
-                i === 0 || i === 3 ? "bg-pink-soft" : "bg-blue-soft",
+                i === 0 || i === 3 ? "bg-gradient-to-br from-white to-pink-soft" : "bg-gradient-to-br from-white to-blue-soft",
               )}
             >
               <span className={cn("blob-b grid h-11 w-11 place-items-center", a.tone)}>{a.icon}</span>

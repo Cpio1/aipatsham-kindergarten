@@ -76,9 +76,9 @@ export function DesktopContacts({ logo }: { logo: SiteImage | null }) {
                 href={a.href}
                 {...(a.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className={cn(
-                  "group relative flex h-full min-h-[150px] flex-col justify-between gap-3 overflow-hidden p-5 shadow-soft transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card",
+                  "group relative flex h-full min-h-[150px] flex-col justify-between gap-3 card-soft overflow-hidden p-5 transition-all duration-500 hover:-translate-y-1.5",
                   i % 2 === 0 ? "rounded-[36px_36px_36px_14px]" : "rounded-[36px_14px_36px_36px]",
-                  i === 0 || i === 3 ? "bg-pink-soft" : "bg-blue-soft",
+                  i === 0 || i === 3 ? "bg-gradient-to-br from-white to-pink-soft" : "bg-gradient-to-br from-white to-blue-soft",
                 )}
               >
                 <span className="flex items-start justify-between">

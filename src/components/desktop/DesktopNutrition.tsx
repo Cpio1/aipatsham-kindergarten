@@ -4,7 +4,7 @@ import { Info } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { CloudShape, FlowerShape, Sparkle } from "@/components/shared/Decor";
+import { FlowerShape } from "@/components/shared/Decor";
 import { mealIcons } from "@/components/shared/icons";
 import { cn } from "@/lib/cn";
 
@@ -21,17 +21,11 @@ export function DesktopNutrition() {
 
   return (
     <div className="relative hidden lg:block">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <CloudShape className="animate-float-slow absolute top-6 left-[44%] w-20 text-white" />
-        <CloudShape className="animate-float absolute right-[5%] bottom-16 w-16 text-white" />
-        <Sparkle className="animate-twinkle absolute top-20 right-[16%] h-4 w-4 text-pink" />
-      </div>
-
       <div className="section-pad relative mx-auto max-w-[1240px] px-6 xl:px-10">
         <div className="flex items-end justify-between gap-10">
           <SectionHeading align="left" eyebrow={t.nutrition.eyebrow} title={t.nutrition.title} subtitle={t.nutrition.subtitle} />
           <Reveal scale={0.85} y={0} className="relative mr-4 shrink-0">
-            <div className="blob-a grid h-32 w-32 place-items-center bg-white text-center shadow-card">
+            <div className="card-soft blob-a grid h-32 w-32 place-items-center bg-white text-center">
               <span>
                 <span className="font-display block text-[46px] leading-none font-black text-blue">5</span>
                 <span className="mt-0.5 block max-w-[96px] text-[12.5px] leading-tight font-extrabold text-pink-deep">
@@ -70,7 +64,7 @@ export function DesktopNutrition() {
                   <Reveal delay={0.1 * i}>
                     <div
                       className={cn(
-                        "group flex h-full flex-col items-center px-4 pt-7 pb-6 text-center shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-card",
+                        "group flex h-full flex-col items-center px-4 pt-7 pb-6 card-soft text-center transition-all duration-500 hover:-translate-y-2",
                         s.card,
                       )}
                     >
@@ -100,7 +94,7 @@ export function DesktopNutrition() {
         </div>
 
         <Reveal className="mt-12 flex justify-center">
-          <p className="inline-flex items-center gap-2.5 rounded-full bg-white/80 px-5 py-2 text-[14px] font-bold text-ink-soft">
+          <p className="inline-flex items-center gap-2.5 rounded-full card-soft bg-white/85 px-5 py-2 text-[14px] font-bold text-ink-soft">
             <Info className="h-4.5 w-4.5 text-blue" />
             {t.nutrition.note}
           </p>

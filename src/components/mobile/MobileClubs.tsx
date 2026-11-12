@@ -68,7 +68,7 @@ export function MobileClubs() {
               <li
                 key={club.title}
                 className={cn(
-                  "relative w-[78%] max-w-[290px] shrink-0 snap-center overflow-hidden p-5 shadow-soft",
+                  "relative w-[78%] max-w-[290px] card-soft shrink-0 snap-center overflow-hidden p-5",
                   shapes[i],
                   tone.card,
                 )}

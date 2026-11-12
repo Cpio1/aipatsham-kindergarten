@@ -9,7 +9,7 @@ export const clubTones = [
     num: "text-white/60",
   },
   {
-    card: "bg-pink-soft text-ink",
+    card: "bg-gradient-to-br from-white to-pink-soft text-ink",
     title: "text-blue",
     text: "text-ink-soft",
     icon: "bg-pink-deep text-white",
@@ -17,7 +17,7 @@ export const clubTones = [
     num: "text-pink-deep",
   },
   {
-    card: "bg-blue-soft text-ink",
+    card: "bg-gradient-to-br from-white to-blue-soft text-ink",
     title: "text-blue",
     text: "text-ink-soft",
     icon: "bg-blue text-white",

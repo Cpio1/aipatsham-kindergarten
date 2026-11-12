@@ -14,19 +14,19 @@ import { cn } from "@/lib/cn";
 
 const groupStyles = [
   {
-    card: "bg-blue-soft rounded-[48px_48px_48px_16px]",
+    card: "card-soft bg-gradient-to-br from-white to-blue-soft rounded-[48px_48px_48px_16px]",
     icon: "bg-blue text-white blob-a",
     num: "text-blue/10",
     dot: "bg-blue",
   },
   {
-    card: "bg-pink-soft rounded-[48px_16px_48px_48px] lg:translate-y-5",
+    card: "card-soft bg-gradient-to-br from-white to-pink-soft rounded-[48px_16px_48px_48px] lg:translate-y-5",
     icon: "bg-pink-deep text-white blob-b",
     num: "text-pink/20",
     dot: "bg-pink-deep",
   },
   {
-    card: "bg-gradient-to-br from-blue-soft via-white to-pink-soft rounded-[16px_48px_48px_48px]",
+    card: "card-soft bg-gradient-to-br from-blue-soft via-white to-pink-soft rounded-[16px_48px_48px_48px]",
     icon: "bg-sun text-ink blob-c",
     num: "text-blue/10",
     dot: "bg-sun",
@@ -79,7 +79,7 @@ export function DesktopAbout({ image }: { image: SiteImage | null }) {
                     key={f.title}
                     delay={0.08 * i}
                     className={cn(
-                      "group flex gap-3.5 rounded-[22px] border border-transparent bg-white p-3.5 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-blue/10",
+                      "group flex gap-3.5 card-soft rounded-[22px] bg-white/90 p-3.5 transition-all duration-300 hover:-translate-y-1 hover:bg-white",
                       i === 4 && "col-span-2",
                     )}
                   >

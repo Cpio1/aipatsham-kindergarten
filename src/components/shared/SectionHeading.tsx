@@ -22,11 +22,11 @@ export function SectionHeading({
       {eyebrow ? (
         <span
           className={cn(
-            "inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[12.5px] font-extrabold tracking-wide uppercase",
-            tone === "blue" ? "bg-pink-soft text-pink-deep" : "bg-blue-soft text-blue",
+            "inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[12.5px] font-extrabold tracking-wide uppercase shadow-[0_6px_16px_-10px_rgb(233_30_120/0.45)] ring-1 backdrop-blur",
+            tone === "blue" ? "bg-white/85 text-pink-deep ring-blush" : "bg-white/85 text-blue ring-sky-light",
           )}
         >
-          <span className={cn("h-2 w-2 rounded-full", tone === "blue" ? "bg-pink" : "bg-blue")} />
+          <span className={cn("h-2 w-2 rounded-full", tone === "blue" ? "bg-rose" : "bg-blue")} />
           {eyebrow}
         </span>
       ) : null}

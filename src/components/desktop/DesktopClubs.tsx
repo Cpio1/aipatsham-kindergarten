@@ -3,7 +3,6 @@
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { Sparkle, StarShape } from "@/components/shared/Decor";
 import { clubIcons } from "@/components/shared/icons";
 import { clubTones } from "@/components/shared/clubStyles";
 import { cn } from "@/lib/cn";
@@ -21,9 +20,6 @@ export function DesktopClubs() {
 
   return (
     <div className="section-pad relative mx-auto hidden max-w-[1240px] px-6 lg:block xl:px-10">
-      <StarShape className="animate-twinkle absolute top-14 left-[10%] h-6 w-6 text-sun" />
-      <Sparkle className="animate-twinkle absolute top-24 right-[12%] h-4 w-4 text-pink [animation-delay:1.4s]" />
-
       <SectionHeading eyebrow={t.clubs.eyebrow} title={t.clubs.title} subtitle={t.clubs.subtitle} />
 
       <ul className="mt-9 grid grid-cols-6 gap-4 xl:gap-5">
@@ -35,7 +31,7 @@ export function DesktopClubs() {
             <Reveal as="li" key={club.title} delay={0.08 * i} className={layout[i]}>
               <article
                 className={cn(
-                  "group relative h-full overflow-hidden rounded-[inherit] p-6 shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-card",
+                  "group relative h-full overflow-hidden card-soft rounded-[inherit] p-6 transition-all duration-500 hover:-translate-y-2",
                   tone.card,
                   wide ? "flex items-center gap-5 xl:p-7" : "min-h-[230px] xl:p-7",
                 )}

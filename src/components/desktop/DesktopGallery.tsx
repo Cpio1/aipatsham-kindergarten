@@ -6,7 +6,6 @@ import type { SiteImage } from "@/lib/images";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Lightbox } from "@/components/shared/Lightbox";
 import { GalleryEmpty, GalleryTile, MoreButton } from "@/components/shared/GalleryParts";
-import { FlowerShape, StarShape } from "@/components/shared/Decor";
 
 const INITIAL = 6;
 
@@ -18,9 +17,6 @@ export function DesktopGallery({ images }: { images: SiteImage[] }) {
 
   return (
     <div className="section-pad relative mx-auto hidden max-w-[1160px] px-6 lg:block xl:px-10">
-      <FlowerShape className="animate-float absolute top-14 right-[8%] h-8 w-8 text-blue/80" />
-      <StarShape className="animate-twinkle absolute top-20 left-[8%] h-6 w-6 text-pink" />
-
       <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} subtitle={t.gallery.subtitle} />
 
       <div className="mt-9">

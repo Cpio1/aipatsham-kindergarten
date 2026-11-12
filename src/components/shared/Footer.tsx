@@ -6,16 +6,16 @@ import { navIds, site } from "@/data/site";
 import type { SiteImage } from "@/lib/images";
 import { Logo } from "./Logo";
 import { InstagramIcon, WhatsAppIcon } from "./BrandIcons";
-import { Wave } from "./Decor";
+import { SectionBackground } from "./SectionBackground";
 
 export function Footer({ logo, year }: { logo: SiteImage | null; year: number }) {
   const { t } = useLang();
 
   return (
-    <footer className="relative bg-white">
-      <Wave className="text-blue-soft" />
-      <div className="bg-blue-soft">
-        <div className="mx-auto max-w-[1320px] px-4 pt-4 pb-[calc(5.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:pb-8 lg:px-10 lg:pt-6 lg:pb-8">
+    <footer className="relative isolate">
+      <SectionBackground variant="footer" />
+      <div>
+        <div className="mx-auto max-w-[1320px] px-4 pt-10 pb-[calc(5.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:pb-8 lg:px-10 lg:pt-12 lg:pb-8">
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-10">
             <div>
               <Logo logo={logo} legal={t.footer.legal} markClassName="h-11 w-11" />
@@ -26,7 +26,7 @@ export function Footer({ logo, year }: { logo: SiteImage | null; year: number })
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
-                  className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-[#1FA855] shadow-soft transition-transform hover:-translate-y-0.5"
+                  className="card-soft grid h-11 w-11 place-items-center rounded-2xl bg-white text-[#1FA855] transition-transform hover:-translate-y-0.5"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
                 </a>
@@ -35,14 +35,14 @@ export function Footer({ logo, year }: { logo: SiteImage | null; year: number })
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-pink-deep shadow-soft transition-transform hover:-translate-y-0.5"
+                  className="card-soft grid h-11 w-11 place-items-center rounded-2xl bg-white text-pink-deep transition-transform hover:-translate-y-0.5"
                 >
                   <InstagramIcon className="h-5 w-5" />
                 </a>
                 <a
                   href={site.phone.tel}
                   aria-label={t.contacts.call}
-                  className="grid h-11 w-11 place-items-center rounded-2xl bg-white text-blue shadow-soft transition-transform hover:-translate-y-0.5"
+                  className="card-soft grid h-11 w-11 place-items-center rounded-2xl bg-white text-blue transition-transform hover:-translate-y-0.5"
                 >
                   <Phone className="h-5 w-5" />
                 </a>
@@ -83,7 +83,7 @@ export function Footer({ logo, year }: { logo: SiteImage | null; year: number })
             </div>
           </div>
 
-          <div className="mt-7 flex flex-col items-center justify-between gap-3 border-t border-blue/10 pt-5 sm:flex-row sm:pr-20 lg:pr-24 text-center text-[13.5px] font-bold text-ink-soft sm:text-left">
+          <div className="mt-7 flex flex-col items-center justify-between gap-3 border-t border-blue/15 pt-5 sm:flex-row sm:pr-20 lg:pr-24 text-center text-[13.5px] font-bold text-ink-soft sm:text-left">
             <p>
               © {year} {t.footer.legal}. {t.footer.rights}
             </p>

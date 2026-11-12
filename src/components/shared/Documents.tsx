@@ -24,7 +24,7 @@ export function Documents() {
 
       {empty ? (
         <Reveal className="relative mx-auto mt-7 max-w-[720px] lg:mt-8">
-          <div className="relative overflow-hidden rounded-[36px_36px_36px_14px] border-2 border-dashed border-blue/20 bg-gradient-to-br from-blue-soft/70 via-white to-pink-soft/70 px-5 py-7 text-center lg:rounded-[48px_48px_48px_18px] lg:px-10 lg:py-9">
+          <div className="card-soft relative overflow-hidden rounded-[36px_36px_36px_14px] border-2 border-dashed border-rose/20 bg-gradient-to-br from-white via-white/90 to-pink-soft px-5 py-7 text-center lg:rounded-[48px_48px_48px_18px] lg:px-10 lg:py-9">
             <Sparkle className="animate-twinkle absolute top-5 right-6 h-4 w-4 text-pink lg:h-5 lg:w-5" />
             <span className="blob-a mx-auto grid h-14 w-14 place-items-center bg-white text-blue shadow-soft lg:h-16 lg:w-16">
               <FolderOpen className="h-7 w-7 lg:h-8 lg:w-8" strokeWidth={1.8} />
@@ -50,7 +50,7 @@ export function Documents() {
                     href={doc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-4 rounded-[26px] bg-white p-4 shadow-soft ring-1 ring-blue/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
+                    className="group flex items-center gap-4 card-soft rounded-[26px] bg-white/90 p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-white"
                   >
                     <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-blue-soft text-blue">
                       <FileText className="h-6 w-6" />

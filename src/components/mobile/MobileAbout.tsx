@@ -13,10 +13,10 @@ import { ButtonLink } from "@/components/ui/Button";
 import { cn } from "@/lib/cn";
 
 const groupTone = [
-  { card: "bg-blue-soft rounded-[32px_32px_32px_12px]", icon: "bg-blue text-white", num: "text-blue/15" },
-  { card: "bg-pink-soft rounded-[32px_12px_32px_32px]", icon: "bg-pink-deep text-white", num: "text-pink/25" },
+  { card: "card-soft bg-gradient-to-br from-white to-blue-soft rounded-[32px_32px_32px_12px]", icon: "bg-blue text-white", num: "text-blue/15" },
+  { card: "card-soft bg-gradient-to-br from-white to-pink-soft rounded-[32px_12px_32px_32px]", icon: "bg-pink-deep text-white", num: "text-pink/25" },
   {
-    card: "bg-gradient-to-r from-blue-soft to-pink-soft rounded-[12px_32px_32px_32px]",
+    card: "card-soft bg-gradient-to-r from-blue-soft via-white to-pink-soft rounded-[12px_32px_32px_32px]",
     icon: "bg-sun text-ink",
     num: "text-blue/15",
   },
@@ -52,7 +52,7 @@ export function MobileAbout({ image }: { image: SiteImage | null }) {
           const pink = i % 2 === 1;
           return (
             <Reveal as="li" key={f.title} delay={0.04 * i} y={18}>
-              <div className="flex gap-3 rounded-[20px] bg-white p-3 shadow-soft ring-1 ring-blue/5">
+              <div className="card-soft flex gap-3 rounded-[20px] bg-white/90 p-3">
                 <span
                   className={cn(
                     "grid h-10 w-10 shrink-0 place-items-center rounded-xl",
