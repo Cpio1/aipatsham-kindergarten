@@ -1,4 +1,4 @@
-import type { SectionId } from "./site";
+import type { NavId } from "./site";
 
 export type Lang = "kk" | "ru";
 
@@ -6,7 +6,7 @@ type Item = { title: string; text: string };
 
 export type Dictionary = {
   langName: string;
-  nav: Record<SectionId, string>;
+  nav: Record<NavId, string>;
   ui: {
     whatsapp: string;
     menu: string;
@@ -105,7 +105,6 @@ export type Dictionary = {
 const kk: Dictionary = {
   langName: "ҚАЗ",
   nav: {
-    home: "Басты бет",
     about: "Біз туралы",
     nutrition: "Тамақтану",
     clubs: "Үйірмелер",
@@ -250,7 +249,6 @@ const kk: Dictionary = {
 const ru: Dictionary = {
   langName: "РУС",
   nav: {
-    home: "Главная",
     about: "О нас",
     nutrition: "Питание",
     clubs: "Кружки",

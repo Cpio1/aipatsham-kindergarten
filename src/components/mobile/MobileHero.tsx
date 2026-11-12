@@ -22,12 +22,12 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-blue-soft via-[#F5F9FF] to-white lg:hidden">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute top-40 -right-24 h-64 w-64 rounded-full bg-pink-soft blur-3xl" />
-        <CloudShape className="animate-float-slow absolute top-[96px] right-[-14px] w-20 text-white" />
-        <Sparkle className="animate-twinkle absolute top-[110px] left-[8%] h-4 w-4 text-pink" />
+        <div className="absolute top-36 -right-16 h-44 w-44 rounded-full bg-pink-soft blur-3xl" />
+        <CloudShape className="animate-float-slow absolute top-[84px] right-2 w-12 text-white" />
+        <Sparkle className="animate-twinkle absolute top-[100px] left-[6%] h-3 w-3 text-pink" />
       </div>
 
-      <div className="relative mx-auto max-w-xl px-4 pt-[92px] pb-8 sm:px-6 sm:pt-[104px]">
+      <div className="relative mx-auto max-w-xl px-4 pt-[80px] pb-6 sm:px-6 sm:pt-[92px]">
         <m.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,11 +39,11 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
             {t.hero.badge}
           </span>
           <HeroTitle
-            className="mt-4 leading-[1.05]"
-            brandClassName="text-[clamp(2.35rem,11.5vw,3.4rem)]"
-            restClassName="text-[clamp(1.5rem,7vw,2.1rem)] leading-[1.2]"
+            className="mt-3 leading-[1.05]"
+            brandClassName="text-[clamp(2.1rem,10.5vw,3rem)]"
+            restClassName="text-[clamp(1.35rem,6.4vw,1.9rem)] leading-[1.2]"
           />
-          <p className="mx-auto mt-4 max-w-[26rem] text-[clamp(1.08rem,4.6vw,1.3rem)] leading-snug font-extrabold text-balance text-pink-deep">
+          <p className="mx-auto mt-3 max-w-[26rem] text-[clamp(1rem,4.3vw,1.2rem)] leading-snug font-extrabold text-balance text-pink-deep">
             {t.hero.subtitle}
           </p>
         </m.div>
@@ -53,7 +53,7 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease }}
-          className="relative mx-auto mt-7 max-w-[460px] px-2"
+          className="relative mx-auto mt-6 max-w-[420px] px-2"
         >
           <div aria-hidden="true" className="blob-c absolute inset-x-0 top-3 bottom-8 rotate-[-4deg] bg-pink/75" />
           <PhotoFrame
@@ -63,7 +63,7 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
             sizes="(max-width: 1023px) 92vw, 1px"
             className="relative aspect-[5/4] rounded-[44px_44px_44px_120px] shadow-[0_28px_50px_-26px_rgb(52_103_213/0.6)] ring-[6px] ring-white"
           />
-          <StarShape className="animate-twinkle absolute -top-3 right-3 h-9 w-9 text-sun" />
+          <StarShape className="animate-twinkle absolute -top-2 right-3 h-6 w-6 text-sun" />
           <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[12.5px] font-extrabold text-ink shadow-soft">
             <Clock className="h-3.5 w-3.5 text-blue" />
             {t.hero.hoursLabel} {site.hours.open}–{site.hours.close}
@@ -96,10 +96,10 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease }}
         >
-          <p className="mx-auto mt-6 max-w-[28rem] text-center text-[15.5px] leading-relaxed font-semibold text-ink-soft">
+          <p className="mx-auto mt-5 max-w-[28rem] text-center text-[15px] leading-relaxed font-semibold text-ink-soft">
             {t.hero.description}
           </p>
-          <div className="mx-auto mt-6 grid max-w-[28rem] gap-2.5 min-[420px]:grid-cols-[1.25fr_1fr]">
+          <div className="mx-auto mt-5 grid max-w-[28rem] gap-2.5 min-[420px]:grid-cols-[1.25fr_1fr]">
             <ButtonLink
               href={site.whatsapp}
               external

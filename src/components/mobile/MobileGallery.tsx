@@ -16,9 +16,9 @@ export function MobileGallery({ images }: { images: SiteImage[] }) {
   const visible = expanded ? images : images.slice(0, INITIAL);
 
   return (
-    <div className="mx-auto max-w-xl px-4 py-14 sm:px-6 lg:hidden">
+    <div className="section-pad mx-auto max-w-xl px-4 sm:px-6 lg:hidden">
       <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} subtitle={t.gallery.subtitle} />
-      <div className="mt-8">
+      <div className="mt-6">
         {images.length === 0 ? (
           <GalleryEmpty compact />
         ) : (

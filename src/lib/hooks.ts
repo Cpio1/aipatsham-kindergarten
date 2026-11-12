@@ -46,3 +46,19 @@ export function useLockBody(locked: boolean) {
     };
   }, [locked]);
 }
+
+/**
+ * Секцияға жұмсақ айналдыру. Шегіністі CSS-тегі `scroll-margin-top` береді,
+ * сондықтан мұнда қосымша есептеу жоқ — native #hash сілтемелерімен бірдей нәтиже.
+ */
+export function scrollToSection(id: SectionId) {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const behavior: ScrollBehavior = reduce ? "auto" : "smooth";
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior });
+  } else {
+    document.getElementById(id)?.scrollIntoView({ behavior, block: "start" });
+  }
+  const url = id === "home" ? window.location.pathname + window.location.search : `#${id}`;
+  window.history.replaceState(null, "", url);
+}

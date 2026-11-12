@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, m } from "motion/react";
 import { Clock, MapPin, Menu, Phone, X } from "lucide-react";
 import { useLang } from "@/lib/i18n";
-import { useActiveSection, useLockBody, useScrolled } from "@/lib/hooks";
-import { sectionIds, site } from "@/data/site";
+import { scrollToSection, useActiveSection, useLockBody, useScrolled } from "@/lib/hooks";
+import { navIds, site, type SectionId } from "@/data/site";
 import type { SiteImage } from "@/lib/images";
 import { Logo } from "@/components/shared/Logo";
 import { LangSwitch } from "@/components/shared/LangSwitch";
@@ -13,7 +13,7 @@ import { WhatsAppIcon } from "@/components/shared/BrandIcons";
 import { StarShape } from "@/components/shared/Decor";
 import { cn } from "@/lib/cn";
 
-const dotColors = ["bg-blue", "bg-pink", "bg-sun", "bg-blue", "bg-pink", "bg-sun", "bg-blue"];
+const dotColors = ["bg-blue", "bg-pink", "bg-sun", "bg-blue", "bg-pink", "bg-sun"];
 
 export function MobileHeader({ logo }: { logo: SiteImage | null }) {
   const { t } = useLang();
@@ -21,6 +21,27 @@ export function MobileHeader({ logo }: { logo: SiteImage | null }) {
   const scrolled = useScrolled();
   const active = useActiveSection();
   useLockBody(open);
+  // Мәзірден таңдалған секция: алдымен мәзір жабылып, бет бұғаттан шыққан соң айналдырамыз
+  const pending = useRef<SectionId | null>(null);
+
+  useEffect(() => {
+    if (open || !pending.current) return;
+    const id = pending.current;
+    pending.current = null;
+    // useLockBody-дің cleanup-ы осы commit-те орындалды — overflow қалпына келді
+    const raf = requestAnimationFrame(() => scrollToSection(id));
+    return () => cancelAnimationFrame(raf);
+  }, [open]);
+
+  const go = (id: SectionId) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (open) {
+      pending.current = id;
+      setOpen(false);
+    } else {
+      scrollToSection(id);
+    }
+  };
 
   useEffect(() => {
     if (!open) return;
@@ -42,11 +63,16 @@ export function MobileHeader({ logo }: { logo: SiteImage | null }) {
           scrolled || open ? "bg-white/95 shadow-[0_8px_24px_-16px_rgb(38_52_81/0.4)] backdrop-blur-xl" : "bg-transparent",
         )}
       >
-        <div className="mx-auto flex h-[72px] max-w-3xl items-center gap-2 px-4 sm:px-6">
-          <a href="#home" aria-label={site.brand} onClick={() => setOpen(false)} className="mr-auto min-w-0 rounded-2xl">
-            <Logo logo={logo} markClassName="h-10 w-10" />
+        <div className="mx-auto flex h-16 max-w-3xl items-center gap-2 px-4 sm:px-6">
+          <a href="#home" aria-label={site.brand} onClick={go("home")} className="mr-auto min-w-0 rounded-2xl">
+            <Logo
+              logo={logo}
+              className="gap-2 min-[360px]:gap-2.5"
+              markClassName="h-9 w-9 min-[360px]:h-10 min-[360px]:w-10"
+              textClassName="text-[1.1rem] min-[360px]:text-[1.3rem]"
+            />
           </a>
-          <LangSwitch id="mobile" className="shrink-0 [&_button]:h-7 [&_button]:px-2.5 [&_button]:text-[12px]" />
+          <LangSwitch id="mobile" className="shrink-0 [&_button]:h-7 [&_button]:px-2 [&_button]:text-[12px] min-[360px]:[&_button]:px-2.5" />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -94,11 +120,11 @@ export function MobileHeader({ logo }: { logo: SiteImage | null }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -12, scale: 0.98 }}
               transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-3 top-[78px] z-10 mx-auto max-h-[calc(100dvh-92px)] max-w-xl overflow-y-auto overscroll-contain rounded-[32px] bg-white p-3 shadow-[0_30px_60px_-24px_rgb(38_52_81/0.5)] sm:inset-x-6"
+              className="absolute inset-x-3 top-[70px] z-10 mx-auto max-h-[calc(100dvh-84px)] max-w-xl overflow-y-auto overscroll-contain rounded-[32px] bg-white p-3 shadow-[0_30px_60px_-24px_rgb(38_52_81/0.5)] sm:inset-x-6"
             >
-              <StarShape className="absolute top-4 right-5 h-6 w-6 text-pink/40" />
+              <StarShape className="absolute top-4 right-5 h-4 w-4 text-pink/40" />
               <ul className="grid gap-1">
-                {sectionIds.map((id, i) => (
+                {navIds.map((id, i) => (
                   <m.li
                     key={id}
                     initial={{ opacity: 0, x: -12 }}
@@ -107,10 +133,10 @@ export function MobileHeader({ logo }: { logo: SiteImage | null }) {
                   >
                     <a
                       href={`#${id}`}
-                      onClick={() => setOpen(false)}
+                      onClick={go(id)}
                       aria-current={active === id ? "true" : undefined}
                       className={cn(
-                        "flex items-center gap-3 rounded-2xl px-4 py-3 text-[17px] font-extrabold transition-colors",
+                        "flex min-h-12 items-center gap-3 rounded-2xl px-4 py-2.5 text-[16px] font-extrabold transition-colors",
                         active === id ? "bg-blue-soft text-blue" : "text-ink active:bg-pink-soft",
                       )}
                     >

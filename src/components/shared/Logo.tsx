@@ -32,18 +32,20 @@ export function Logo({
   logo,
   className,
   markClassName,
+  textClassName,
   legal,
 }: {
   logo: SiteImage | null;
   className?: string;
   markClassName?: string;
+  textClassName?: string;
   legal?: string;
 }) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
-      <LogoMark logo={logo} className={cn("h-11 w-11 shrink-0", markClassName)} />
+      <LogoMark logo={logo} className={cn("shrink-0", markClassName ?? "h-11 w-11")} />
       <span className="flex min-w-0 flex-col leading-none">
-        <span className="font-display text-[1.3rem] font-black tracking-tight text-blue">
+        <span className={cn("font-display font-black tracking-tight whitespace-nowrap text-blue", textClassName ?? "text-[1.3rem]")}>
           Ай <span className="text-pink-deep">Патшам</span>
         </span>
         {legal ? <span className="mt-1 truncate text-[11px] font-bold text-ink-soft">{legal}</span> : null}

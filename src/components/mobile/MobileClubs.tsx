@@ -50,15 +50,15 @@ export function MobileClubs() {
   };
 
   return (
-    <div className="mx-auto max-w-xl py-14 lg:hidden">
+    <div className="section-pad mx-auto max-w-xl lg:hidden">
       <div className="px-4 sm:px-6">
         <SectionHeading eyebrow={t.clubs.eyebrow} title={t.clubs.title} subtitle={t.clubs.subtitle} />
       </div>
 
-      <Reveal className="mt-8">
+      <Reveal className="mt-6">
         <ul
           ref={track}
-          className="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-4 pt-2 pb-5 sm:px-6"
+          className="no-scrollbar flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth px-4 pt-2 pb-4 sm:px-6"
           aria-label={t.clubs.title}
         >
           {t.clubs.items.map((club, i) => {
@@ -68,20 +68,20 @@ export function MobileClubs() {
               <li
                 key={club.title}
                 className={cn(
-                  "relative w-[78%] max-w-[300px] shrink-0 snap-center overflow-hidden p-6 shadow-soft",
+                  "relative w-[78%] max-w-[290px] shrink-0 snap-center overflow-hidden p-5 shadow-soft",
                   shapes[i],
                   tone.card,
                 )}
               >
-                <Icon aria-hidden="true" strokeWidth={1.4} className={cn("absolute -right-5 -bottom-6 h-32 w-32", tone.ghost)} />
-                <span className={cn("blob-a relative grid h-14 w-14 place-items-center", tone.icon)}>
-                  <Icon className="h-7 w-7" strokeWidth={1.8} />
+                <Icon aria-hidden="true" strokeWidth={1.4} className={cn("absolute -right-4 -bottom-4 h-24 w-24", tone.ghost)} />
+                <span className={cn("blob-a relative grid h-12 w-12 place-items-center", tone.icon)}>
+                  <Icon className="h-6 w-6" strokeWidth={1.8} />
                 </span>
-                <span className={cn("relative mt-6 block text-[12px] font-black tracking-[0.2em]", tone.num)}>0{i + 1}</span>
-                <h3 className={cn("font-display relative mt-0.5 text-[1.4rem] leading-tight font-black", tone.title)}>
+                <span className={cn("relative mt-5 block text-[12px] font-black tracking-[0.2em]", tone.num)}>0{i + 1}</span>
+                <h3 className={cn("font-display relative mt-0.5 text-[1.25rem] leading-tight font-black", tone.title)}>
                   {club.title}
                 </h3>
-                <p className={cn("relative mt-2 text-[14.5px] leading-snug font-semibold", tone.text)}>{club.text}</p>
+                <p className={cn("relative mt-1.5 text-[14px] leading-snug font-semibold", tone.text)}>{club.text}</p>
               </li>
             );
           })}
@@ -96,7 +96,7 @@ export function MobileClubs() {
                 onClick={() => goTo(i)}
                 aria-label={club.title}
                 aria-current={index === i ? "true" : undefined}
-                className="grid h-6 place-items-center px-0.5"
+                className="grid h-8 min-w-6 place-items-center px-0.5"
               >
                 <span
                   className={cn(

@@ -20,16 +20,16 @@ export function MobileNutrition() {
   const { t } = useLang();
 
   return (
-    <div className="relative mx-auto max-w-xl px-4 pt-10 pb-14 sm:px-6 lg:hidden">
-      <CloudShape className="animate-float-slow absolute top-4 right-2 w-16 text-white" />
-      <Sparkle className="animate-twinkle absolute top-16 left-4 h-4 w-4 text-pink" />
+    <div className="section-pad relative mx-auto max-w-xl px-4 sm:px-6 lg:hidden">
+      <CloudShape className="animate-float-slow absolute top-2 right-3 w-11 text-white" />
+      <Sparkle className="animate-twinkle absolute top-12 left-3 h-3 w-3 text-pink" />
 
       <SectionHeading eyebrow={t.nutrition.eyebrow} title={t.nutrition.title} subtitle={t.nutrition.subtitle} />
 
-      <ol className="relative mt-9 grid gap-3 pl-1">
+      <ol className="relative mt-7 grid gap-2.5 pl-1">
         <span
           aria-hidden="true"
-          className="absolute top-8 bottom-8 left-[30px] border-l-[3px] border-dotted border-blue/30"
+          className="absolute top-8 bottom-8 left-[28px] border-l-[3px] border-dotted border-blue/30"
         />
         {t.nutrition.meals.map((meal, i) => {
           const Icon = mealIcons[i];
@@ -38,16 +38,16 @@ export function MobileNutrition() {
             <Reveal as="li" key={meal.title} delay={0.05 * i} x={-16} y={0} className="relative flex items-center gap-3">
               <span
                 className={cn(
-                  "blob-b relative z-10 grid h-[58px] w-[58px] shrink-0 place-items-center shadow-soft ring-4 ring-blue-soft",
+                  "blob-b relative z-10 grid h-[52px] w-[52px] shrink-0 place-items-center shadow-soft ring-4 ring-blue-soft",
                   tone.icon,
                 )}
               >
-                <Icon className="h-7 w-7" strokeWidth={1.8} />
+                <Icon className="h-6 w-6" strokeWidth={1.8} />
               </span>
               <div className={cn("min-w-0 flex-1 px-4 py-3 shadow-soft", tone.card)}>
                 <div className="flex items-baseline gap-2">
                   <span className="text-[12px] font-black text-pink-deep">0{i + 1}</span>
-                  <h3 className="font-display text-[1.12rem] leading-tight font-black text-blue">{meal.title}</h3>
+                  <h3 className="font-display text-[1.05rem] leading-tight font-black text-blue">{meal.title}</h3>
                 </div>
                 <p className="mt-0.5 text-[13.5px] leading-snug font-semibold text-ink-soft">{meal.text}</p>
               </div>
@@ -56,7 +56,7 @@ export function MobileNutrition() {
         })}
       </ol>
 
-      <Reveal className="mt-7">
+      <Reveal className="mt-6">
         <p className="flex items-start gap-2 rounded-[20px] bg-white/80 px-4 py-3 text-[13.5px] font-bold text-ink-soft">
           <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue" />
           {t.nutrition.note}

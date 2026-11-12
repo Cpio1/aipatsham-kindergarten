@@ -52,11 +52,26 @@
 /* ---------- Негізгі стильдер ---------- */
 :root {
   color-scheme: light only;
-  --header-h: 72px;
+  /* Бекітілген шапка биіктігі */
+  --header-h: 64px;
+  /* Секцияның үстіңгі/астыңғы ішкі шегінісі */
+  --section-pt: 40px;
+  /* Секциялар арасындағы толқын биіктігі */
+  --wave-h: 28px;
+  /* Шапка мен секция мазмұнының арасындағы саңылау */
+  --anchor-gap: 16px;
 }
 @media (min-width: 1024px) {
   :root {
-    --header-h: 84px;
+    --header-h: 76px;
+    --section-pt: 48px;
+    --wave-h: 48px;
+  }
+}
+@media (min-width: 1280px) {
+  :root {
+    --section-pt: 56px;
+    --wave-h: 56px;
   }
 }
 
@@ -78,10 +93,26 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Секциялар бекітілген шапканың астына тығылмайды */
+/*
+ * Якорь бойынша өткенде секция мазмұны (eyebrow/тақырып) шапкадан
+ * дәл --anchor-gap төмен тұрады: ішкі шегініс (және толқын) есептен шығарылады.
+ * Бұл native #hash сілтемелеріне де, scrollIntoView-ке де бірдей әсер етеді.
+ */
 section[id] {
-  scroll-margin-top: calc(var(--header-h) + 12px);
+  scroll-margin-top: calc(var(--header-h) + var(--anchor-gap) - var(--section-pt));
   overflow-x: clip;
+}
+section[id].has-wave-top {
+  scroll-margin-top: calc(var(--header-h) + var(--anchor-gap) - var(--section-pt) - var(--wave-h));
+}
+#home {
+  scroll-margin-top: 0;
+}
+
+/* Секцияның ішкі тік шегінісі (Desktop/Mobile үшін айнымалы арқылы) */
+.section-pad {
+  padding-top: var(--section-pt);
+  padding-bottom: var(--section-pt);
 }
 
 ::selection {

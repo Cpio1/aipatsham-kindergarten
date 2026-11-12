@@ -32,7 +32,7 @@ export function GalleryTile({
 }) {
   const { t } = useLang();
   return (
-    <Reveal delay={(index % 3) * 0.06} y={24} className="mb-3 break-inside-avoid lg:mb-6">
+    <Reveal delay={(index % 3) * 0.06} y={24} className="mb-3 break-inside-avoid lg:mb-5">
       <button
         type="button"
         onClick={() => onOpen(index)}
@@ -66,7 +66,7 @@ export function MoreButton({ expanded, onClick }: { expanded: boolean; onClick: 
       type="button"
       onClick={onClick}
       aria-expanded={expanded}
-      className="group inline-flex h-13 items-center gap-2.5 rounded-full bg-white px-7 text-[16px] font-extrabold text-blue shadow-soft ring-2 ring-blue/15 transition-all duration-300 hover:-translate-y-0.5 hover:ring-blue/40"
+      className="group inline-flex h-12 items-center gap-2.5 rounded-full bg-white px-6 text-[15px] font-extrabold text-blue shadow-soft ring-2 ring-blue/15 transition-all duration-300 hover:-translate-y-0.5 hover:ring-blue/40"
     >
       {expanded ? t.gallery.less : t.gallery.more}
       <ChevronDown className={cn("h-5 w-5 transition-transform duration-300", expanded && "rotate-180")} />
@@ -80,7 +80,7 @@ export function GalleryEmpty({ compact }: { compact?: boolean }) {
   const tiles = compact ? 4 : 6;
   return (
     <Reveal className="relative">
-      <ul aria-hidden="true" className={cn("grid gap-3", compact ? "grid-cols-2" : "grid-cols-3 gap-6")}>
+      <ul aria-hidden="true" className={cn("grid gap-3", compact ? "grid-cols-2" : "grid-cols-3 gap-5")}>
         {Array.from({ length: tiles }).map((_, i) => (
           <li
             key={i}
@@ -91,7 +91,7 @@ export function GalleryEmpty({ compact }: { compact?: boolean }) {
               compact ? "aspect-square" : i % 3 === 1 ? "aspect-[4/5]" : "aspect-[4/3.2]",
             )}
           >
-            <ImageIcon className={compact ? "h-8 w-8" : "h-12 w-12"} strokeWidth={1.5} />
+            <ImageIcon className={compact ? "h-7 w-7" : "h-10 w-10"} strokeWidth={1.5} />
           </li>
         ))}
       </ul>

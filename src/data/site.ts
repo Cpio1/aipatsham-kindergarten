@@ -58,3 +58,7 @@ export const sectionIds: SectionId[] = [
   "documents",
   "contacts",
 ];
+
+/** Мәзірдегі пункттер: «Басты бет» жоқ — логотип/атау басты бетке қайтарады */
+export type NavId = Exclude<SectionId, "home">;
+export const navIds: NavId[] = sectionIds.filter((id): id is NavId => id !== "home");

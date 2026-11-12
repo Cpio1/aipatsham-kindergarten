@@ -22,7 +22,7 @@ export function SectionHeading({
       {eyebrow ? (
         <span
           className={cn(
-            "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-[13px] font-extrabold tracking-wide uppercase",
+            "inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-[12.5px] font-extrabold tracking-wide uppercase",
             tone === "blue" ? "bg-pink-soft text-pink-deep" : "bg-blue-soft text-blue",
           )}
         >
@@ -30,14 +30,14 @@ export function SectionHeading({
           {eyebrow}
         </span>
       ) : null}
-      <h2 className="font-display mt-4 text-[1.85rem] leading-[1.12] font-black tracking-tight text-balance text-blue sm:text-[2.2rem] lg:text-[2.9rem]">
+      <h2 className="font-display mt-3 text-[1.65rem] leading-[1.15] font-black tracking-tight text-balance text-blue sm:text-[2rem] lg:text-[2.25rem] xl:text-[2.5rem]">
         {title}
       </h2>
       <SquiggleLine
-        className={cn("mt-3 h-3 w-24 text-pink lg:mt-4 lg:w-28", align === "center" ? "mx-auto" : "")}
+        className={cn("mt-2.5 h-2.5 w-20 text-pink lg:mt-3 lg:w-24", align === "center" ? "mx-auto" : "")}
       />
       {subtitle ? (
-        <p className="mt-4 text-[16px] leading-relaxed font-semibold text-pretty text-ink-soft lg:text-[18px]">
+        <p className="mt-3 text-[15px] leading-relaxed font-semibold text-pretty text-ink-soft lg:text-[16.5px]">
           {subtitle}
         </p>
       ) : null}

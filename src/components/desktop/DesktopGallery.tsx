@@ -17,24 +17,24 @@ export function DesktopGallery({ images }: { images: SiteImage[] }) {
   const visible = expanded ? images : images.slice(0, INITIAL);
 
   return (
-    <div className="relative mx-auto hidden max-w-[1320px] px-6 py-24 lg:block xl:px-10 xl:py-28">
-      <FlowerShape className="animate-float absolute top-24 right-[10%] h-12 w-12 text-blue/80" />
-      <StarShape className="animate-twinkle absolute top-32 left-[9%] h-8 w-8 text-pink" />
+    <div className="section-pad relative mx-auto hidden max-w-[1160px] px-6 lg:block xl:px-10">
+      <FlowerShape className="animate-float absolute top-14 right-[8%] h-8 w-8 text-blue/80" />
+      <StarShape className="animate-twinkle absolute top-20 left-[8%] h-6 w-6 text-pink" />
 
       <SectionHeading eyebrow={t.gallery.eyebrow} title={t.gallery.title} subtitle={t.gallery.subtitle} />
 
-      <div className="mt-14">
+      <div className="mt-9">
         {images.length === 0 ? (
           <GalleryEmpty />
         ) : (
           <>
-            <div className="columns-3 gap-6">
+            <div className="columns-3 gap-5">
               {visible.map((img, i) => (
-                <GalleryTile key={img.src} image={img} index={i} sizes="(min-width: 1024px) 420px, 1px" onOpen={setOpen} />
+                <GalleryTile key={img.src} image={img} index={i} sizes="(min-width: 1024px) 380px, 1px" onOpen={setOpen} />
               ))}
             </div>
             {images.length > INITIAL ? (
-              <div className="mt-8 flex justify-center">
+              <div className="mt-6 flex justify-center">
                 <MoreButton expanded={expanded} onClick={() => setExpanded((v) => !v)} />
               </div>
             ) : null}

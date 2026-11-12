@@ -48,7 +48,7 @@ export default function Home() {
           <MobileAbout image={images.about} />
         </section>
 
-        <section id="nutrition" className="relative">
+        <section id="nutrition" className="has-wave-top relative">
           <Wave className="text-blue-soft" />
           <div className="bg-blue-soft">
             <DesktopNutrition />

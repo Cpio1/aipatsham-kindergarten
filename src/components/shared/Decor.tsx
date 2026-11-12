@@ -77,7 +77,7 @@ export function Wave({ className, flip = false }: DecorProps & { flip?: boolean 
       viewBox="0 0 1440 90"
       preserveAspectRatio="none"
       aria-hidden="true"
-      className={cn("pointer-events-none block h-[36px] w-full lg:h-[80px]", flip && "rotate-180", className)}
+      className={cn("pointer-events-none block h-(--wave-h) w-full", flip && "rotate-180", className)}
     >
       <path
         fill="currentColor"

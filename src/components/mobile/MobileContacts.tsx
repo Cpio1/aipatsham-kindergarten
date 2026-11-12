@@ -22,29 +22,29 @@ export function MobileContacts({ logo }: { logo: SiteImage | null }) {
   ];
 
   return (
-    <div className="mx-auto max-w-xl px-4 py-14 sm:px-6 lg:hidden">
+    <div className="section-pad mx-auto max-w-xl px-4 sm:px-6 lg:hidden">
       <SectionHeading eyebrow={t.contacts.eyebrow} title={t.contacts.title} subtitle={t.contacts.subtitle} />
 
-      <Reveal className="mt-8">
-        <div className="relative overflow-hidden rounded-[40px_40px_40px_16px] bg-blue p-5 text-white shadow-card sm:p-6">
-          <div aria-hidden="true" className="absolute -top-16 -right-16 h-44 w-44 rounded-full bg-pink/35" />
-          <StarShape className="animate-twinkle absolute top-5 right-5 h-7 w-7 text-sun" />
+      <Reveal className="mt-6">
+        <div className="relative overflow-hidden rounded-[32px_32px_32px_14px] bg-blue p-4 text-white shadow-card sm:p-6">
+          <div aria-hidden="true" className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-pink/35" />
+          <StarShape className="animate-twinkle absolute top-4 right-4 h-5 w-5 text-sun" />
           <div className="relative flex items-center gap-3 pr-8">
-            <LogoMark logo={logo} className="h-12 w-12 shrink-0" />
+            <LogoMark logo={logo} className="h-11 w-11 shrink-0" />
             <div className="min-w-0">
-              <p className="font-display text-[1.2rem] leading-tight font-black">{t.contacts.kindergarten}</p>
+              <p className="font-display text-[1.1rem] leading-tight font-black">{t.contacts.kindergarten}</p>
               <p className="text-[12.5px] font-bold text-white/70">{t.footer.legal}</p>
             </div>
           </div>
-          <dl className="relative mt-5 grid gap-3">
+          <dl className="relative mt-4 grid gap-2">
             {rows.map(({ icon: Icon, label, value, href }) => (
-              <div key={label} className="flex items-center gap-3 rounded-2xl bg-white/10 px-3 py-2.5">
+              <div key={label} className="flex items-center gap-3 rounded-2xl bg-white/10 px-3 py-2">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/15">
                   <Icon className="h-5 w-5" />
                 </span>
                 <div className="min-w-0">
                   <dt className="text-[11.5px] font-extrabold tracking-wide text-white/65 uppercase">{label}</dt>
-                  <dd className="text-[15.5px] leading-snug font-extrabold break-words">
+                  <dd className="text-[15px] leading-snug font-extrabold break-words">
                     {href ? <a href={href}>{value}</a> : value}
                   </dd>
                 </div>
@@ -61,14 +61,14 @@ export function MobileContacts({ logo }: { logo: SiteImage | null }) {
               href={a.href}
               {...(a.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={cn(
-                "flex h-full min-h-[118px] flex-col items-start justify-between gap-3 p-4 shadow-soft transition-transform active:scale-[0.97]",
+                "flex h-full min-h-[108px] flex-col items-start justify-between gap-2.5 p-4 shadow-soft transition-transform active:scale-[0.97]",
                 i % 2 === 0 ? "rounded-[28px_28px_28px_12px]" : "rounded-[28px_12px_28px_28px]",
                 i === 0 || i === 3 ? "bg-pink-soft" : "bg-blue-soft",
               )}
             >
-              <span className={cn("blob-b grid h-12 w-12 place-items-center", a.tone)}>{a.icon}</span>
+              <span className={cn("blob-b grid h-11 w-11 place-items-center", a.tone)}>{a.icon}</span>
               <span className="min-w-0">
-                <span className="font-display block text-[1.05rem] leading-tight font-black text-blue">{a.label}</span>
+                <span className="font-display block text-[1rem] leading-tight font-black text-blue">{a.label}</span>
                 <span className="mt-0.5 block text-[12px] leading-snug font-bold break-words text-ink-soft">{a.hint}</span>
               </span>
             </a>

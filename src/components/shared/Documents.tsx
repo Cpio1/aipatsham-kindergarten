@@ -19,20 +19,20 @@ export function Documents() {
   const empty = docs.length === 0 && !drive;
 
   return (
-    <div className="mx-auto max-w-[1100px] px-4 py-14 sm:px-6 lg:px-10 lg:py-24">
+    <div className="section-pad mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-10">
       <SectionHeading eyebrow={t.documents.eyebrow} title={t.documents.title} subtitle={t.documents.subtitle} tone="pink" />
 
       {empty ? (
-        <Reveal className="relative mx-auto mt-9 max-w-[760px] lg:mt-12">
-          <div className="relative overflow-hidden rounded-[36px_36px_36px_14px] border-2 border-dashed border-blue/20 bg-gradient-to-br from-blue-soft/70 via-white to-pink-soft/70 px-5 py-8 text-center lg:rounded-[56px_56px_56px_20px] lg:px-12 lg:py-12">
-            <Sparkle className="animate-twinkle absolute top-6 right-8 h-5 w-5 text-pink lg:h-7 lg:w-7" />
-            <span className="blob-a mx-auto grid h-16 w-16 place-items-center bg-white text-blue shadow-soft lg:h-20 lg:w-20">
-              <FolderOpen className="h-8 w-8 lg:h-10 lg:w-10" strokeWidth={1.8} />
+        <Reveal className="relative mx-auto mt-7 max-w-[720px] lg:mt-8">
+          <div className="relative overflow-hidden rounded-[36px_36px_36px_14px] border-2 border-dashed border-blue/20 bg-gradient-to-br from-blue-soft/70 via-white to-pink-soft/70 px-5 py-7 text-center lg:rounded-[48px_48px_48px_18px] lg:px-10 lg:py-9">
+            <Sparkle className="animate-twinkle absolute top-5 right-6 h-4 w-4 text-pink lg:h-5 lg:w-5" />
+            <span className="blob-a mx-auto grid h-14 w-14 place-items-center bg-white text-blue shadow-soft lg:h-16 lg:w-16">
+              <FolderOpen className="h-7 w-7 lg:h-8 lg:w-8" strokeWidth={1.8} />
             </span>
-            <h3 className="font-display mt-5 text-[1.35rem] font-black text-blue lg:text-[1.75rem]">
+            <h3 className="font-display mt-4 text-[1.25rem] font-black text-blue lg:text-[1.5rem]">
               {t.documents.emptyTitle}
             </h3>
-            <p className="mx-auto mt-2 max-w-md text-[15px] font-semibold text-ink-soft lg:text-[16.5px]">
+            <p className="mx-auto mt-2 max-w-md text-[14.5px] font-semibold text-ink-soft lg:text-[15.5px]">
               {t.documents.emptyText}
             </p>
             <ButtonLink href={site.phone.tel} variant="white" size="sm" className="mt-5" icon={<Phone className="h-4 w-4" />}>
@@ -41,7 +41,7 @@ export function Documents() {
           </div>
         </Reveal>
       ) : (
-        <div className="mx-auto mt-9 max-w-[860px] lg:mt-12">
+        <div className="mx-auto mt-7 max-w-[860px] lg:mt-8">
           {docs.length > 0 ? (
             <ul className="grid gap-3 sm:grid-cols-2 lg:gap-5">
               {docs.map((doc, i) => (
