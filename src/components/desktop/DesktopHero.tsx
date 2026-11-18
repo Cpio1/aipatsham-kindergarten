@@ -177,6 +177,7 @@ export function DesktopHero({ image }: { image: SiteImage | null }) {
               image={image}
               alt={t.hero.photoAlt}
               priority
+              position="50% 75%"
               sizes="(min-width: 1024px) 440px, 1px"
               className="blob-a absolute inset-0 shadow-[0_40px_80px_-30px_rgb(43_95_232/0.55)] ring-8 ring-white"
             />

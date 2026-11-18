@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { AnimatePresence, m } from "motion/react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -20,6 +21,8 @@ export function Lightbox({ images, index, onClose, onChange }: Props) {
   const open = index !== null;
   const closeRef = useRef<HTMLButtonElement>(null);
   const touchX = useRef<number | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   useLockBody(open);
 
   const total = images.length;
@@ -46,7 +49,9 @@ export function Lightbox({ images, index, onClose, onChange }: Props) {
 
   const img = index !== null ? images[index] : null;
 
-  return (
+  // Секциялардағы `isolate` stacking context-тен шығу үшін body-ге портал арқылы
+  if (!mounted) return null;
+  return createPortal(
     <AnimatePresence>
       {img && index !== null ? (
         <m.div
@@ -134,6 +139,7 @@ export function Lightbox({ images, index, onClose, onChange }: Props) {
           <div className="h-16 shrink-0 sm:h-6" />
         </m.div>
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

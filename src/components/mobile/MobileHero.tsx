@@ -84,8 +84,9 @@ export function MobileHero({ image }: { image: SiteImage | null }) {
             image={image}
             alt={t.hero.photoAlt}
             priority
+            position="50% 75%"
             sizes="(max-width: 1023px) 92vw, 1px"
-            className="relative aspect-[5/4] rounded-[44px_44px_44px_120px] shadow-[0_28px_50px_-26px_rgb(43_95_232/0.6)] ring-[6px] ring-white"
+            className="relative aspect-[8/7] rounded-[44px_44px_44px_120px] shadow-[0_28px_50px_-26px_rgb(43_95_232/0.6)] ring-[6px] ring-white"
           />
           <StarShape className="animate-twinkle absolute -top-2 right-3 h-6 w-6 text-sun" />
           <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[12.5px] font-extrabold text-ink shadow-soft">

@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Lightbox } from "@/components/shared/Lightbox";
 import { GalleryEmpty, GalleryTile, MoreButton } from "@/components/shared/GalleryParts";
 
-const INITIAL = 6;
+const INITIAL = 8;
 
 export function DesktopGallery({ images }: { images: SiteImage[] }) {
   const { t } = useLang();
@@ -24,9 +24,9 @@ export function DesktopGallery({ images }: { images: SiteImage[] }) {
           <GalleryEmpty />
         ) : (
           <>
-            <div className="columns-3 gap-5">
+            <div className="mx-auto grid max-w-[980px] grid-cols-4 gap-5">
               {visible.map((img, i) => (
-                <GalleryTile key={img.src} image={img} index={i} sizes="(min-width: 1024px) 380px, 1px" onOpen={setOpen} />
+                <GalleryTile key={img.src} image={img} index={i} sizes="(min-width: 1024px) 240px, 1px" onOpen={setOpen} />
               ))}
             </div>
             {images.length > INITIAL ? (

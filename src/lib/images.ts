@@ -4,8 +4,8 @@
  *
  * Файл атаулары (PNG, JPG, JPEG, WebP, AVIF):
  *   public/logo.*         — логотип (header, footer)
- *   public/main-page.*    — басты экран (Hero)
- *   public/main-page2.*   — «Біз туралы» бөлімі
+ *   main-page.*           — басты экран (Hero); public/ немесе public/gallery/ ішінде
+ *   main-page2.*          — «Біз туралы» бөлімі; public/ немесе public/gallery/ ішінде
  *   public/gallery/*      — галерея фотосуреттері
  *   public/<басқа>.*      — қалған суреттер де галереяға қосылады
  */
@@ -133,16 +133,21 @@ function toImage(dir: string, file: string, urlPrefix: string): SiteImage | null
 
 export function getSiteImages(): SiteImages {
   const rootFiles = listImages(PUBLIC_DIR);
+  const galleryDir = path.join(PUBLIC_DIR, "gallery");
+  const galleryFiles = listImages(galleryDir);
   const baseName = (f: string) => f.replace(EXT_RE, "").toLowerCase();
 
+  // Алдымен public/, сосын public/gallery/ ішінен іздейміз
   const pick = (name: string) => {
-    const file = rootFiles.find((f) => baseName(f) === name);
-    return file ? toImage(PUBLIC_DIR, file, "") : null;
+    const root = rootFiles.find((f) => baseName(f) === name);
+    if (root) return toImage(PUBLIC_DIR, root, "");
+    const inGallery = galleryFiles.find((f) => baseName(f) === name);
+    return inGallery ? toImage(galleryDir, inGallery, "/gallery") : null;
   };
 
-  const galleryDir = path.join(PUBLIC_DIR, "gallery");
+  // Hero / «Біз туралы» суреттері галереяда қайталанбайды
   const gallery = [
-    ...listImages(galleryDir).map((f) => toImage(galleryDir, f, "/gallery")),
+    ...galleryFiles.filter((f) => !RESERVED.has(baseName(f))).map((f) => toImage(galleryDir, f, "/gallery")),
     ...rootFiles.filter((f) => !RESERVED.has(baseName(f))).map((f) => toImage(PUBLIC_DIR, f, "")),
   ].filter((img): img is SiteImage => img !== null);
 

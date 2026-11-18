@@ -32,23 +32,23 @@ export function GalleryTile({
 }) {
   const { t } = useLang();
   return (
-    <Reveal delay={(index % 3) * 0.06} y={24} className="mb-3 break-inside-avoid lg:mb-5">
+    <Reveal delay={(index % 4) * 0.06} y={24} className="min-w-0">
       <button
         type="button"
         onClick={() => onOpen(index)}
         aria-label={`${t.gallery.openPhoto}: ${index + 1}`}
         className={cn(
-          "group relative block w-full overflow-hidden bg-blue-soft shadow-soft ring-4 ring-white transition-all duration-500 hover:-translate-y-1 hover:shadow-card lg:ring-[6px]",
+          "group relative block aspect-[3/4] w-full overflow-hidden bg-blue-soft shadow-soft ring-4 ring-white transition-all duration-500 hover:-translate-y-1 hover:shadow-card lg:ring-[6px]",
           tileShapes[index % tileShapes.length],
         )}
       >
         <Image
           src={image.src}
           alt={t.gallery.photoAlt(index + 1)}
-          width={image.width}
-          height={image.height}
+          fill
           sizes={sizes}
-          className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.05]"
+          loading="lazy"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
         />
         <span className="absolute inset-0 bg-gradient-to-t from-blue/40 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <span className="absolute right-3 bottom-3 grid h-10 w-10 scale-75 place-items-center rounded-full bg-white text-blue opacity-0 shadow-soft transition-all duration-500 group-hover:scale-100 group-hover:opacity-100">

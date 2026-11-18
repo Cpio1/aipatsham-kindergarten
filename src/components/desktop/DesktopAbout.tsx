@@ -48,6 +48,7 @@ export function DesktopAbout({ image }: { image: SiteImage | null }) {
               image={image}
               alt={t.about.photoAlt}
               variant="about"
+              position="50% 30%"
               sizes="(min-width: 1024px) 420px, 1px"
               className="relative aspect-[4/4.6] rounded-[150px_150px_40px_40px] shadow-[0_32px_60px_-30px_rgb(38_52_81/0.5)] ring-8 ring-white"
             />

@@ -35,6 +35,7 @@ export function MobileAbout({ image }: { image: SiteImage | null }) {
           image={image}
           alt={t.about.photoAlt}
           variant="about"
+          position="50% 30%"
           sizes="(max-width: 1023px) 90vw, 1px"
           className="relative aspect-[4/3.4] rounded-[120px_120px_36px_36px] shadow-[0_24px_50px_-28px_rgb(38_52_81/0.5)] ring-[6px] ring-white"
         />

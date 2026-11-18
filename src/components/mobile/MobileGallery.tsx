@@ -23,9 +23,9 @@ export function MobileGallery({ images }: { images: SiteImage[] }) {
           <GalleryEmpty compact />
         ) : (
           <>
-            <div className="columns-2 gap-3">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {visible.map((img, i) => (
-                <GalleryTile key={img.src} image={img} index={i} sizes="(max-width: 1023px) 48vw, 1px" onOpen={setOpen} />
+                <GalleryTile key={img.src} image={img} index={i} sizes="(max-width: 639px) 48vw, (max-width: 1023px) 280px, 1px" onOpen={setOpen} />
               ))}
             </div>
             {images.length > INITIAL ? (
