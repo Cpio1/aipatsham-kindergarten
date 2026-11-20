@@ -16,23 +16,23 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000");
 
-const title = "«Ай Патшам» балабақшасы — Көктем-1";
+const title = "Smart Korkem балабақшасы — Көктем-1";
 const description =
-  "«Ай Патшам» балабақшасы: 1–7 жас аралығындағы балаларға арналған жайлы орта, қазақ тіліндегі тәрбие, 5 мезгіл тамақтану және қызықты үйірмелер. Дс–Жм, 08:00–18:30.";
+  "Smart Korkem балабақшасы: 1–7 жас аралығындағы балаларға арналған жайлы орта, қазақ тіліндегі тәрбие, 5 мезгіл тамақтану және қызықты үйірмелер. Дс–Жм, 08:00–18:30.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  applicationName: "Ай Патшам",
-  keywords: ["Ай Патшам", "балабақша", "детский сад", "Көктем-1", "Smart Korkem", "қазақ тілді балабақша"],
+  applicationName: "Smart Korkem",
+  keywords: ["Smart Korkem", "Smart Korkem балабақшасы", "балабақша", "детский сад", "Көктем-1", "қазақ тілді балабақша"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "kk_KZ",
     alternateLocale: ["ru_RU"],
     url: "/",
-    siteName: "Ай Патшам",
+    siteName: "Smart Korkem",
     title,
     description,
   },

@@ -34,20 +34,24 @@ export function Logo({
   markClassName,
   textClassName,
   legal,
+  suffix,
 }: {
   logo: SiteImage | null;
   className?: string;
   markClassName?: string;
   textClassName?: string;
   legal?: string;
+  /** Атаудың астындағы жазу, мысалы «балабақшасы» */
+  suffix?: string;
 }) {
   return (
     <span className={cn("flex items-center gap-2.5", className)}>
       <LogoMark logo={logo} className={cn("shrink-0", markClassName ?? "h-11 w-11")} />
       <span className="flex min-w-0 flex-col leading-none">
         <span className={cn("font-display font-black tracking-tight whitespace-nowrap text-blue", textClassName ?? "text-[1.3rem]")}>
-          Ай <span className="text-pink-deep">Патшам</span>
+          Smart <span className="text-pink-deep">Korkem</span>
         </span>
+        {suffix ? <span className="mt-1 font-display text-[15px] font-black text-ink">{suffix}</span> : null}
         {legal ? <span className="mt-1 truncate text-[11px] font-bold text-ink-soft">{legal}</span> : null}
       </span>
     </span>

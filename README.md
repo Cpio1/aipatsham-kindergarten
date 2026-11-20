@@ -1,4 +1,4 @@
-# «Ай Патшам» балабақшасы — лендинг
+# Smart Korkem балабақшасы — лендинг
 
 Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · Motion · Lucide.
 Сайт по умолчанию на казахском, переключатель ҚАЗ / РУС сохраняет выбор в браузере.

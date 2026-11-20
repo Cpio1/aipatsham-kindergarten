@@ -5,7 +5,7 @@
  */
 
 export const site = {
-  brand: "Ай Патшам",
+  brand: "Smart Korkem",
   legalName: "Smart Korkem",
 
   phone: {

@@ -18,7 +18,7 @@ export function Footer({ logo, year }: { logo: SiteImage | null; year: number })
         <div className="mx-auto max-w-[1320px] px-4 pt-10 pb-[calc(5.5rem+env(safe-area-inset-bottom))] sm:px-6 sm:pb-8 lg:px-10 lg:pt-12 lg:pb-8">
           <div className="grid gap-7 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-10">
             <div>
-              <Logo logo={logo} legal={t.footer.legal} markClassName="h-11 w-11" />
+              <Logo logo={logo} suffix={t.footer.brandSuffix} legal={t.footer.legal} markClassName="h-11 w-11" />
               <p className="mt-3 max-w-sm text-[14.5px] font-semibold text-ink-soft">{t.footer.tagline}</p>
               <div className="mt-4 flex gap-2.5">
                 <a

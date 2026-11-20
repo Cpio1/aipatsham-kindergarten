@@ -38,7 +38,7 @@ export default function Home() {
       <MobileHeader logo={images.logo} />
 
       <main>
-        <section id="home" aria-label="Ай Патшам">
+        <section id="home" aria-label="Smart Korkem">
           <DesktopHero image={images.hero} />
           <MobileHero image={images.hero} />
         </section>

@@ -3,14 +3,14 @@
 import { useLang } from "@/lib/i18n";
 import { cn } from "@/lib/cn";
 
-/** «Ай Патшам» балабақшасы / Детский сад «Ай Патшам» — тіл бойынша дұрыс сөз тәртібі */
+/** Smart Korkem балабақшасы / Детский сад Smart Korkem — тіл бойынша дұрыс сөз тәртібі */
 export function HeroTitle({ className, brandClassName, restClassName }: { className?: string; brandClassName?: string; restClassName?: string }) {
   const { t } = useLang();
   return (
     <h1 className={cn("font-display font-black tracking-tight", className)}>
       {t.hero.titleBefore ? <span className={cn("block text-ink", restClassName)}>{t.hero.titleBefore}</span> : null}
       <span className={cn("relative inline-block whitespace-nowrap text-blue", brandClassName)}>
-        «Ай <span className="text-pink-deep">Патшам</span>»
+        Smart <span className="text-pink-deep">Korkem</span>
         <svg
           viewBox="0 0 300 20"
           preserveAspectRatio="none"

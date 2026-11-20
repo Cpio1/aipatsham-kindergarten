@@ -63,13 +63,13 @@ export function MobileHeader({ logo }: { logo: SiteImage | null }) {
           scrolled || open ? "bg-white/95 shadow-[0_8px_24px_-16px_rgb(38_52_81/0.4)] backdrop-blur-xl" : "bg-transparent",
         )}
       >
-        <div className="mx-auto flex h-16 max-w-3xl items-center gap-2 px-4 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-3xl items-center gap-1.5 px-3 min-[360px]:gap-2 min-[360px]:px-4 sm:px-6">
           <a href="#home" aria-label={site.brand} onClick={go("home")} className="mr-auto min-w-0 rounded-2xl">
             <Logo
               logo={logo}
-              className="gap-2 min-[360px]:gap-2.5"
-              markClassName="h-9 w-9 min-[360px]:h-10 min-[360px]:w-10"
-              textClassName="text-[1.1rem] min-[360px]:text-[1.3rem]"
+              className="gap-1.5 min-[390px]:gap-2.5"
+              markClassName="h-8 w-8 min-[360px]:h-9 min-[360px]:w-9 min-[390px]:h-10 min-[390px]:w-10"
+              textClassName="text-[0.95rem] min-[360px]:text-[1.08rem] min-[390px]:text-[1.3rem]"
             />
           </a>
           <LangSwitch id="mobile" className="shrink-0 [&_button]:h-7 [&_button]:px-2 [&_button]:text-[12px] min-[360px]:[&_button]:px-2.5" />
